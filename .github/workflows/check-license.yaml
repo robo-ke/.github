@@ -1,0 +1,31 @@
+# Copyright 2023 roboke
+# SPDX-License-Identifier: Apache-2.0
+
+name: Check License Header
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-license:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check License Header
+        run: |
+          CHECK=$(grep -rL --exclude-dir=.git \
+            --exclude=\*.{md,gitignore} \
+            --exclude=LICENSE \
+            --regexp "Copyright 2023 roboke" .)
+          if [ "$CHECK" ]; then
+            echo "License header check failed. Fix the following files:"
+            echo "$CHECK" | xargs -n 1 echo "  -"
+            exit 1
+          fi

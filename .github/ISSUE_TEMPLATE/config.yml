@@ -1,0 +1,8 @@
+# Copyright 2023 roboke
+# SPDX-License-Identifier: Apache-2.0
+
+blank_issues_enabled: false
+contact_links:
+  - name: GitHub Discussions
+    url: https://github.com/orgs/robo-ke/discussions
+    about: Join in-depth discussions about the mpesaoverlay project. Ask questions, share your experiences, and connect with other maintainers and community members.
