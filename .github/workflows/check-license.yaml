@@ -21,7 +21,7 @@ jobs:
       - name: Check License Header
         run: |
           CHECK=$(grep -rL --exclude-dir=.git \
-            --exclude=\*.gitignore \
+            --exclude=\*.{md,gitignore} \
             --exclude=LICENSE \
             --regexp "Copyright 2023 roboke" .)
           if [ "$CHECK" ]; then
